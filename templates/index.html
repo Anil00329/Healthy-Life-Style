@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Lifestyle Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #e9ecef;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #004d40;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container select {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .form-container select {
+            background-color: #f8f9fa;
+        }
+        .form-container input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 20px;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        .result {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .result p {
+            margin: 0;
+        }
+        .form-container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #004d40;
+        }
+        .form-container input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        .form-container input[type="number"]::-webkit-inner-spin-button,
+        .form-container input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .form-container h2::before {
+            content: url('https://img.icons8.com/ios/50/000000/doctor-male.png');
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .form-container input, .form-container select {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Healthy Lifestyle Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="Specific_ailments">Specific ailments:</label>
+            <input type="number" name="Specific_ailments" step="0.1" id="Specific_ailments" required aria-label="Specific ailments">
+            
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" id="Age" required aria-label="Age">
+            
+            <label for="BMI">BMI:</label>
+            <input type="number" step="0.1" name="BMI" id="BMI" required aria-label="BMI">
+            
+            <label for="Living_in">Living in?</label>
+            <select name="Living_in" id="Living_in" required aria-label="Living in">
+                <option value="0">Urban</option>
+                <option value="1">Rural</option>
+            </select>
+            
+            <label for="Follow_Diet">Follow Diet:</label>
+            <select name="Follow_Diet" id="Follow_Diet" required aria-label="Follow Diet">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="Physical_activity">Physical Activity:</label>
+            <select name="Physical_activity" id="Physical_activity" required aria-label="Physical Activity">
+                <option value="0">None</option>
+                <option value="1">Some</option>
+            </select>
+            
+            <label for="Regular_sleeping_hours">Regular Sleeping Hours:</label>
+            <select name="Regular_sleeping_hours" id="Regular_sleeping_hours" required aria-label="Regular Sleeping Hours">
+                <option value="0">Less than 6 hours</option>
+                <option value="1">6 hours or more</option>
+            </select>
+            
+            <label for="Alcohol_consumption">Alcohol Consumption:</label>
+            <select name="Alcohol_consumption" id="Alcohol_consumption" required aria-label="Alcohol Consumption">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="Social_interaction">Social Interaction:</label>
+            <select name="Social_interaction" id="Social_interaction" required aria-label="Social Interaction">
+                <option value="0">Low</option>
+                <option value="1">High</option>
+            </select>
+            
+            <label for="Illness_count_last_year">Illness Count Last Year:</label>
+            <input type="number" name="Illness_count_last_year" id="Illness_count_last_year" required aria-label="Illness Count Last Year">
+            
+            <label for="DX1">DX1:</label>
+            <select name="DX1" id="DX1" required aria-label="DX1">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="DX2">DX2:</label>
+            <select name="DX2" id="DX2" required aria-label="DX2">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="DX3">DX3:</label>
+            <select name="DX3" id="DX3" required aria-label="DX3">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="DX4">DX4:</label>
+            <select name="DX4" id="DX4" required aria-label="DX4">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="DX5">DX5:</label>
+            <select name="DX5" id="DX5" required aria-label="DX5">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="DX6">DX6:</label>
+            <select name="DX6" id="DX6" required aria-label="DX6">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="Smoker_NO">Smoker? NO:</label>
+            <select name="Smoker_NO" id="Smoker_NO" required aria-label="Smoker NO">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="Smoker_YES">Smoker? YES:</label>
+            <select name="Smoker_YES" id="Smoker_YES" required aria-label="Smoker YES">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
